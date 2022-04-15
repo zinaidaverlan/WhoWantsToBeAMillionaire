@@ -1,10 +1,10 @@
 public class Question {
     String question;
-    Answer answer1;
+    Answer  answer1;
     Answer answer2;
     Answer answer3;
     Answer answer4;
-    int level;
+        int level;
     int score;
 
     public Question(String question, Answer answer1, Answer answer2, Answer answer3, Answer answer4, int level, int score) {
@@ -13,8 +13,8 @@ public class Question {
         this.answer2 = answer2;
         this.answer3 = answer3;
         this.answer4 = answer4;
-        this.level=level;
-        this.score=score;
+        this.level = level;
+        this.score = score;
     }
 
     public String getQuestion() {
