@@ -4,7 +4,7 @@ public class Question {
     Answer answer2;
     Answer answer3;
     Answer answer4;
-        int level;
+    int level;
     int score;
 
     public Question(String question, Answer answer1, Answer answer2, Answer answer3, Answer answer4, int level, int score) {
