@@ -1,3 +1,5 @@
+import question.answer.Question;
+
 import  java.util.Scanner;
 
 public class GameProcess {
