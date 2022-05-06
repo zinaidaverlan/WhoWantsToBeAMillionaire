@@ -1,3 +1,4 @@
+package questionsanswers;
 public class Answer {
     private String answer;
     private boolean isCorrect;

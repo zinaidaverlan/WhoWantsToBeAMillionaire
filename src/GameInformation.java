@@ -71,18 +71,20 @@ public class GameInformation {
     static String QUESTION_10_ANSWER_4 = "China";
     static int QUESTION_10_MONEY = 32000;
 
-    ArrayList<String> listQuestion = new ArrayList<>();
+    public void addQuestions() {
+        ArrayList<String> listQuestion = new ArrayList<>();
         listQuestion.add(QUESTION_1_LEVEL_1);
-        add(QUESTION_2_LEVEL_2);
-        add(QUESTION_3_LEVEL_3);
-        add(QUESTION_4_LEVEL_4);
-        add(QUESTION_5_LEVEL_5);
-        add(QUESTION_6_LEVEL_6);
-        add(QUESTION_7_LEVEL_7);
-        add(QUESTION_8_LEVEL_8);
-        add(QUESTION_9_LEVEL_9);
-        add(QUESTION_10_LEVEL_10);;
-
+        listQuestion.add(QUESTION_2_LEVEL_2);
+        listQuestion.add(QUESTION_3_LEVEL_3);
+        listQuestion.add(QUESTION_4_LEVEL_4);
+        listQuestion.add(QUESTION_5_LEVEL_5);
+        listQuestion.add(QUESTION_6_LEVEL_6);
+        listQuestion.add(QUESTION_7_LEVEL_7);
+        listQuestion.add(QUESTION_8_LEVEL_8);
+        listQuestion.add(QUESTION_9_LEVEL_9);
+        listQuestion.add(QUESTION_10_LEVEL_10);
+        ;
+    }
 
 
 }

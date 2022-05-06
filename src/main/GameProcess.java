@@ -1,4 +1,5 @@
-import question.answer.Question;
+package main;
+import questionsanswers.Question;
 
 import  java.util.Scanner;
 
@@ -25,7 +26,7 @@ public class GameProcess {
                 String gamerAnswer = scanner.nextLine();
                 switch (gamerAnswer) {
                     case "a":
-                        if (question.getAnswer1().isCorrect()) {
+                        if (question.getAnswers().isCorrect()) {
                             System.out.println("Answer is correct");
                             totalScore += question.getScore();
                             System.out.println("Score =" + totalScore);
@@ -81,6 +82,7 @@ public class GameProcess {
     }
 
     private Question[] initQuestion() {
+
         Question[] questions = new Question[10];
 
         Answer answer1question1 = new Answer(GameInformation.QUESTION_1_ANSWER_1, true, "a");

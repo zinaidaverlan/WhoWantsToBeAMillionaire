@@ -1,7 +1,7 @@
-package question.answer;
+package questionsanswers;
 
 public class Question {
-    public class Question {
+     {
         private String question;
         private Answer[] answers;
         private int level;
@@ -46,5 +46,12 @@ public class Question {
             this.score = score;
         }
     }
- public
+    public Answer getCorrectAnswer(){
+
+        return null;
+    }
+    public  Answer[] getWrongAnswer(){
+
+        return new Answer[0];
+    }
 }
