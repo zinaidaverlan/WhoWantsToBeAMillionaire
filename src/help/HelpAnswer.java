@@ -11,6 +11,9 @@ public class HelpAnswer {
         this.probabilityOfCorrectness = probabilityOfCorrectness;
     }
 
+    public HelpAnswer(Answer[] wrongAnswer, int probabilityOfCorrectness) {
+    }
+
     public Answer getHelpAnswer() {
         return helpAnswer;
     }
