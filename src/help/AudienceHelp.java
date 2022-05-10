@@ -3,6 +3,7 @@ package help;
 import questionsanswers.Question;
 
 public class AudienceHelp extends HelpOption{
+
     @Override
     HelpAnswer[] getHelpAnswers(Question question) {
 

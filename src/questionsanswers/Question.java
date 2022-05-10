@@ -48,11 +48,24 @@ public class Question {
 
 
     public Answer getCorrectAnswer() {
+        for( Answer answer: answers){
+            if (answer.isCorrect()){
+                return answer;
+            }
+        }
 
         return null;
     }
 
     public Answer[] getWrongAnswer() {
+        Answer[] wrongAnswers = new Answer[3];
+        int i=0;
+        for(Answer answer:answers){
+            if (!(answer.isCorrect())){
+                wrongAnswers[i]=answer;
+                i++;
+            }
+        }
 
         return new Answer[0];
     }

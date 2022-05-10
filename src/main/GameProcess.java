@@ -1,5 +1,6 @@
 package main;
 
+import help.HelpfulAnswerOption;
 import questionsanswers.Answer;
 import questionsanswers.AnswerOptions;
 import questionsanswers.Question;
@@ -25,28 +26,38 @@ public class GameProcess {
                     System.out.println(answer.getOption() + ":" + answer.getAnswer());
                 }
 
-                System.out.println("Choose the correct option a,b,c or d:");
+                System.out.println("Choose the correct option A, B, C or D or:");
+                System.out.println("====Help====");
+                System.out.println("F -> 50/50 |  P -> Call a friend  |  U - > The audience asks:");
                 String gamerAnswer = scanner.nextLine();
+// verificare
+                if (isValidOption(gamerAnswer))
 
-                AnswerOptions gamesAnswers= AnswerOptions.valueOf(gamerAnswer.toUpperCase(Locale.ROOT));
+                if (isHelpOption(gamerAnswer)){
 
-                Answer returnedAnswer = question.getCheckAnswerCorrect(gamesAnswers);
+                    //functional
+                } else {
+                    AnswerOptions gamesAnswers= AnswerOptions.valueOf(gamerAnswer.toUpperCase(Locale.ROOT));
+                    Answer returnedAnswer = question.getCheckAnswerCorrect(gamesAnswers);
 
-                if(returnedAnswer.isCorrect()){
-                    System.out.println("Answer is correct");
-                    totalScore += question.getScore();
-                    System.out.println("Score =" + totalScore);
-                }else {
-                    System.out.println("Answer in wrong!");
-                    System.out.println("Final Score=" + totalScore);
-                    testGame = false;
-                }
+                    if(returnedAnswer.isCorrect()){
+                        System.out.println("Answer is correct");
+                        totalScore += question.getScore();
+                        System.out.println("Score =" + totalScore);
+                    }else {
+                        System.out.println("Answer in wrong!");
+                        System.out.println("Final Score=" + totalScore);
+                        testGame = false;
+                    }}
 
 
 
-                  /*  switch (gamerAnswer) {
-                    case "a":
-                        if (question.getAnswers().isCorrect()) {
+                //HelpfulAnswerOption gamesHelps = HelpfulAnswerOption.valueOf(gamerAnswer.toUpperCase());
+
+/*
+                switch (gamesHelps) {
+                    case "P":
+                        if (gamesHelps.equals() {
                             System.out.println("Answer is correct");
                             totalScore += question.getScore();
                             System.out.println("Score =" + totalScore);
@@ -101,7 +112,13 @@ public class GameProcess {
         }
     }
 
-    private Question[] initQuestion() {
+    private boolean isValidOption(String gamerAnswer) {
+        if(gamerAnswer.equals("A") || gamerAnswer.equals("B")|| gamerAnswer.equals("C")|| gamerAnswer.equals("D")||
+        gamerAnswer.equals("F")||gamerAnswer.equals("P")|| gamerAnswer.equals("U")) {
+//corp instr
+}
+
+    private Question[] initQuestion() {}
 
         Question[] questions = new Question[10];
         Answer[] answers1 = new Answer[4];
@@ -186,7 +203,10 @@ public class GameProcess {
         questions[9] = question10;
         return questions;
     }
+ private  boolean isHelpOption(String gamerAnswer){
+        if (gamerAnswer.)
 
+ }
     private Question getQuestionByLevel(int level) {
         Question question = null;
         for (Question question1 : allQuestions) {
@@ -196,6 +216,7 @@ public class GameProcess {
                 break;
             }
         }
+
         return question;
 
     }

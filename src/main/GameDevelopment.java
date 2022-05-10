@@ -12,8 +12,7 @@ public class GameDevelopment {
         GameProcess gameProcess = new GameProcess();
         gameProcess.startGame();
 
-        System.out.println("====Help====");
-        System.out.println("F -> 50/50 |  P -> Call a friend   |   A - > The audience asks");
+
 
 
     }

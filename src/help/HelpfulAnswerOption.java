@@ -1,5 +1,5 @@
 package help;
 
 public enum HelpfulAnswerOption {
-    A, F, P;
+      F, P, U;
 }
