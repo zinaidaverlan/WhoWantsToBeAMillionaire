@@ -77,6 +77,6 @@ public class Question {
                 checkAnswer = answer;
             }
         }
-        return null;
+        return checkAnswer;
     }
 }

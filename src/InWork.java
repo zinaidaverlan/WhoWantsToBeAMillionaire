@@ -52,3 +52,61 @@ public class InWork {
         String answer =scanner.nextLine();
         break;*/
 
+
+//HelpfulAnswerOption gamesHelps = HelpfulAnswerOption.valueOf(gamerAnswer.toUpperCase());
+
+/*
+                switch (gamesHelps) {
+                    case "P":
+                        if (gamesHelps.equals() {
+                            System.out.println("Answer is correct");
+                            totalScore += question.getScore();
+                            System.out.println("Score =" + totalScore);
+                        } else {
+                            System.out.println("Answer in wrong!");
+                            System.out.println("Final Score=" + totalScore);
+                            testGame = false;
+
+                        }
+                        break;
+                    case "b":
+                        if (question.getAnswer2().isCorrect()) {
+                            System.out.println("Answer is correct");
+                            totalScore += question.getScore();
+                            System.out.println("Score =" + totalScore);
+                        } else {
+                            System.out.println("Answer in wrong!");
+                            System.out.println("Final Score=" + totalScore);
+                            testGame = false;
+                        }
+                        break;
+                    case "c":
+                        if (question.getAnswer3().isCorrect()) {
+                            System.out.println("Answer is correct");
+                            totalScore += question.getScore();
+                            System.out.println("Score =" + totalScore);
+                        } else {
+                            System.out.println("Answer in wrong!");
+                            System.out.println("Final Score=" + totalScore);
+                            testGame = false;
+                        }
+                        break;
+                    case "d":
+                        if (question.getAnswer4().isCorrect()) {
+                            System.out.println("Answer is correct");
+                            totalScore += question.getScore();
+                            System.out.println("Score =" + totalScore);
+                        } else {
+                            System.out.println("Answer in wrong!");
+                            System.out.println("Final Score=" + totalScore);
+                            testGame = false;
+                        }
+                        break;
+                    default:
+                        System.out.println("The option is not answer!");
+                }
+
+                level += 1;
+            } else {
+                testGame = false;*/
+
