@@ -1,6 +1,9 @@
 package main;
 
+import help.AudienceHelp;
+import help.FiftyFiftyHelp;
 import help.HelpfulAnswerOption;
+import help.PhoneHelp;
 import questionsanswers.Answer;
 import questionsanswers.AnswerOptions;
 import questionsanswers.Question;
@@ -18,6 +21,11 @@ public class GameProcess {
         boolean testGame = true;
         int totalScore = 0;
         int level = 1;
+
+        PhoneHelp phoneHelp=new PhoneHelp();
+        AudienceHelp audienceHelp= new AudienceHelp();
+        FiftyFiftyHelp fiftyFiftyHelp =new FiftyFiftyHelp();
+
         while (testGame && (level <= 10)) {
             Question question = getQuestionByLevel(level);
             if (question != null) {
@@ -30,7 +38,7 @@ public class GameProcess {
                 System.out.println("====Help====");
                 System.out.println("F -> 50/50 |  P -> Call a friend  |  U - > The audience asks:");
                 String gamerAnswer = scanner.nextLine();
-// verificare
+
                 if (isValidOption(gamerAnswer)) {
                     AnswerOptions gamesAnswers = AnswerOptions.valueOf(gamerAnswer.toUpperCase(Locale.ROOT));
                     Answer returnedAnswer = question.getCheckAnswerCorrect(gamesAnswers);
@@ -43,6 +51,25 @@ public class GameProcess {
                         System.out.println("Answer in wrong!");
                         System.out.println("Final Score=" + totalScore);
                         testGame = false;
+                    }
+                }
+
+                if (isHelpOption(gamerAnswer)){
+                    switch (gamerAnswer){
+                        case "P":
+                        System.out.println("The phone help option is chosen");
+
+                        break;
+                        case "F":
+                            System.out.println("The fifty fifty option is chosen");
+
+                            break;
+                        case "U":
+                            System.out.println("The audience help option is chosen");
+
+                            break;
+                        default:
+                            throw new IllegalStateException("Unexpected value: " + gamerAnswer);
                     }
                 }
             }

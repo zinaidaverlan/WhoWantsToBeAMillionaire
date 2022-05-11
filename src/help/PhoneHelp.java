@@ -3,6 +3,8 @@ package help;
 import questionsanswers.Question;
 
 public class PhoneHelp extends HelpOption{
+    public PhoneHelp() {
+    }
 
     @Override
     HelpAnswer[] getHelpAnswers(Question question) {
