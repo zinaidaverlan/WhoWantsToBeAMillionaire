@@ -22,9 +22,9 @@ public class GameProcess {
         int totalScore = 0;
         int level = 1;
 
-        PhoneHelp phoneHelp=new PhoneHelp();
-        AudienceHelp audienceHelp= new AudienceHelp();
-        FiftyFiftyHelp fiftyFiftyHelp =new FiftyFiftyHelp();
+        PhoneHelp phoneHelp = new PhoneHelp();
+        AudienceHelp audienceHelp = new AudienceHelp();
+        FiftyFiftyHelp fiftyFiftyHelp = new FiftyFiftyHelp();
 
         while (testGame && (level <= 10)) {
             Question question = getQuestionByLevel(level);
@@ -39,6 +39,7 @@ public class GameProcess {
                 System.out.println("F -> 50/50 |  P -> Call a friend  |  U - > The audience asks:");
                 String gamerAnswer = scanner.nextLine();
 
+
                 if (isValidOption(gamerAnswer)) {
                     AnswerOptions gamesAnswers = AnswerOptions.valueOf(gamerAnswer.toUpperCase(Locale.ROOT));
                     Answer returnedAnswer = question.getCheckAnswerCorrect(gamesAnswers);
@@ -52,21 +53,24 @@ public class GameProcess {
                         System.out.println("Final Score=" + totalScore);
                         testGame = false;
                     }
-                }
+                } else
 
-                if (isHelpOption(gamerAnswer)){
-                    switch (gamerAnswer){
+                if (isHelpOption(gamerAnswer)) {
+                    switch (gamerAnswer) {
                         case "P":
-                        System.out.println("The phone help option is chosen");
-
-                        break;
+                            System.out.println("The phone help option is chosen");
+                             ;
+                            phoneHelp.isUsed(true);
+                            break;
                         case "F":
                             System.out.println("The fifty fifty option is chosen");
 
+                            //fiftyFiftyHelp.isUsed();
                             break;
                         case "U":
                             System.out.println("The audience help option is chosen");
 
+                            //audienceHelp.isUsed();
                             break;
                         default:
                             throw new IllegalStateException("Unexpected value: " + gamerAnswer);
@@ -75,6 +79,7 @@ public class GameProcess {
             }
         }
     }
+
     private boolean isHelpOption(String gamerAnswer) {
         for (HelpfulAnswerOption helpfulAnswerOption : HelpfulAnswerOption.values()) {
             if (helpfulAnswerOption.name().equals(gamerAnswer)) {
@@ -92,7 +97,7 @@ public class GameProcess {
 
     private boolean isValidOption(String gamerAnswer) {
         for (AnswerOptions answerOptions : AnswerOptions.values()) {
-            if (answerOptions.name().equals(gamerAnswer)) {
+            if (answerOptions.name().equalsIgnoreCase(gamerAnswer)) {
                 return true;
             }
         }

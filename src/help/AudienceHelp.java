@@ -5,17 +5,22 @@ import questionsanswers.Question;
 import java.util.Random;
 
 public class AudienceHelp extends HelpOption{
+    public AudienceHelp() {
+    }
+
     Random random =new Random();
-    int n =random.nextInt();
+    int max=100;
+    int rand=random.nextInt(max);
+
 
     @Override
     HelpAnswer[] getHelpAnswers(Question question) {
 
-            HelpAnswer[] helpAnswers =new HelpAnswer[2];
+            HelpAnswer[] helpAnswers =new HelpAnswer[4];
             helpAnswers[0]=new HelpAnswer(question.getCorrectAnswer(),50);
-            helpAnswers[1]=new HelpAnswer(question.getWrongAnswer()[n],10);
-            helpAnswers[2]=new HelpAnswer(question.getWrongAnswer()[n], 25);
-            helpAnswers[3]=new HelpAnswer(question.getWrongAnswer()[n],15);
+            helpAnswers[1]=new HelpAnswer(question.getWrongAnswer()[3],rand);
+            helpAnswers[2]=new HelpAnswer(question.getWrongAnswer()[3],rand);
+            helpAnswers[3]=new HelpAnswer(question.getWrongAnswer()[3],rand);
             return new HelpAnswer[4];
 
     }

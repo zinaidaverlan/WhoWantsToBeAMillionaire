@@ -5,7 +5,7 @@ import questionsanswers.Question;
 public abstract class HelpOption {
     private boolean isUsed = false;
 
-    public boolean isUsed() {
+    public boolean isUsed(boolean isUsed) {
         return isUsed;
     }
 
@@ -15,16 +15,5 @@ public abstract class HelpOption {
 
     abstract HelpAnswer[] getHelpAnswers(Question question);
 
-   /* protected HelpAnswer getCorrectAnswer(Question question) {
-        HelpAnswer correctAnswer = new HelpAnswer();
-        correctAnswer.setAnswer(question.getCorrectAnswer());
-        return correctAnswer;
-    }
-
-    protected HelpAnswer getRandomWrongAnswer(Question question) {
-        HelpAnswer wrongAnswer = new HelpAnswer();
-        Random random = new Random();
-        wrongAnswer.setAnswer(question.getWrongAnswers().get(RandomHelp.getRandomIndex(question, random)));
-        return wrongAnswer;
-    }*/
+   
 }

@@ -73,10 +73,10 @@ public class Question {
     public Answer getCheckAnswerCorrect(AnswerOptions answerOptions) {
         Answer checkAnswer = null;
         for (Answer answer : answers) {
-            if (answer.getOption().equals(answerOptions)) {
+            if (answer.getOption().equalsIgnoreCase(answerOptions.name())) {
                 checkAnswer = answer;
             }
         }
-        return null;
+        return checkAnswer;
     }
 }
