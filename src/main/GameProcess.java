@@ -1,9 +1,6 @@
 package main;
 
-import help.AudienceHelp;
-import help.FiftyFiftyHelp;
-import help.HelpfulAnswerOption;
-import help.PhoneHelp;
+import help.*;
 import questionsanswers.Answer;
 import questionsanswers.AnswerOptions;
 import questionsanswers.Question;
@@ -30,55 +27,105 @@ public class GameProcess {
             Question question = getQuestionByLevel(level);
             if (question != null) {
                 System.out.println(question.getQuestion());
+                System.out.println("Choose the correct option A, B, C or D or:");
+
+
                 for (Answer answer : question.getAnswers()) {
                     System.out.println(answer.getOption() + ":" + answer.getAnswer());
                 }
-
-                System.out.println("Choose the correct option A, B, C or D or:");
                 System.out.println("====Help====");
                 System.out.println("F -> 50/50 |  P -> Call a friend  |  U - > The audience asks:");
                 String gamerAnswer = scanner.nextLine();
 
-
                 if (isValidOption(gamerAnswer)) {
+
+                    if (isHelpOption(gamerAnswer)) {
+                        HelpfulAnswerOption helpfulAnswerOption = HelpfulAnswerOption.valueOf(gamerAnswer.toUpperCase(Locale.ROOT));
+                        switch (gamerAnswer) {
+                            case "P":
+                               /* if (!phoneHelp.isUsed()) {
+
+                                    HelpAnswer[] helpAnswers = phoneHelp.getHelpAnswers(question);
+                                    showHelpAnswer(helpAnswers);
+                                    totalScore += question.getScore();
+                                    System.out.println("Score =" + totalScore);
+                                    level += 1;
+                                    phoneHelp.setUsed(true);
+                                } else {
+                                    System.out.println("Phone help in used");
+                                    phoneHelp.setUsed(false);
+                                }*/
+                                break;
+
+                            case "F":
+                                /*if (!fiftyFiftyHelp.isUsed()) {
+
+                                    HelpAnswer[] helpAnswers = fiftyFiftyHelp.getHelpAnswers(question);
+                                    showHelpAnswer(helpAnswers);
+                                    totalScore += question.getScore();
+                                    System.out.println("Score =" + totalScore);
+                                    level += 1;
+                                    fiftyFiftyHelp.setUsed(true);
+                                } else {
+                                    System.out.println("Fifty fifty help in used");
+                                    fiftyFiftyHelp.setUsed(false);
+                                }*/
+                                break;
+
+
+
+                            case "U":
+                                System.out.println("The audience help option is chosen");
+
+                                if (!audienceHelp.isUsed()) {
+
+                                    HelpAnswer[] helpAnswers = audienceHelp.getHelpAnswers(question);
+                                    showHelpAnswer(helpAnswers);
+                                    totalScore += question.getScore();
+                                    System.out.println("Score =" + totalScore);
+                                    level += 1;
+                                    audienceHelp.setUsed(true);
+                                } else {
+                                    System.out.println("Audience help in used");
+                                    audienceHelp.setUsed(false);
+                                }
+                                break;
+                            default:
+                                throw new IllegalStateException("Unexpected value: " + gamerAnswer);
+                        }
+                        System.out.println("Choose the correct option: ");
+                        gamerAnswer = scanner.nextLine();
+                    }
+
+
                     AnswerOptions gamesAnswers = AnswerOptions.valueOf(gamerAnswer.toUpperCase(Locale.ROOT));
                     Answer returnedAnswer = question.getCheckAnswerCorrect(gamesAnswers);
-
                     if (returnedAnswer.isCorrect()) {
                         System.out.println("Answer is correct");
                         totalScore += question.getScore();
                         System.out.println("Score =" + totalScore);
-                    } else {
-                        System.out.println("Answer in wrong!");
-                        System.out.println("Final Score=" + totalScore);
-                        testGame = false;
+                        level += 1;
                     }
-                } else
+                } else {
 
-                if (isHelpOption(gamerAnswer)) {
-                    switch (gamerAnswer) {
-                        case "P":
-                            System.out.println("The phone help option is chosen");
-                             ;
-                            phoneHelp.isUsed(true);
-                            break;
-                        case "F":
-                            System.out.println("The fifty fifty option is chosen");
-
-                            //fiftyFiftyHelp.isUsed();
-                            break;
-                        case "U":
-                            System.out.println("The audience help option is chosen");
-
-                            //audienceHelp.isUsed();
-                            break;
-                        default:
-                            throw new IllegalStateException("Unexpected value: " + gamerAnswer);
-                    }
+                    System.out.println("Answer in wrong!");
+                    System.out.println("Final Score=" + totalScore);
+                    testGame = false;
                 }
+
+
             }
         }
+
     }
+
+    private void showHelpAnswer(HelpAnswer[] helpAnswers) {
+        for (HelpAnswer ans : helpAnswers) {
+            System.out.println(ans.getHelpAnswer().getOption() + " . " + ans.getHelpAnswer().getAnswer() + "  : " + ans.getProbabilityOfCorrectness());
+        }
+    }
+
+
 
     private boolean isHelpOption(String gamerAnswer) {
         for (HelpfulAnswerOption helpfulAnswerOption : HelpfulAnswerOption.values()) {
@@ -86,11 +133,11 @@ public class GameProcess {
                 return true;
             }
         }
-        try {
+        /*try {
         } catch (IllegalArgumentException e) {
 
         }
-        System.out.println("The help option entered is incorrect");
+        System.out.println("The help option entered is incorrect");*/
         return false;
 
     }
@@ -101,12 +148,19 @@ public class GameProcess {
                 return true;
             }
         }
-        try {
+        for (HelpfulAnswerOption helpfulAnswerOption : HelpfulAnswerOption.values()) {
+            if (helpfulAnswerOption.name().equals(gamerAnswer)) {
+                return true;
+            }
+        }
+
+        /*try {
         } catch (IllegalArgumentException e) {
 
         }
-        System.out.println("The option entered is incorrect");
+        System.out.println("The option entered is incorrect");*/
         return false;
+
     }
 
     private Question[] initQuestion() {

@@ -67,7 +67,7 @@ public class Question {
             }
         }
 
-        return new Answer[0];
+        return wrongAnswers;
     }
 
     public Answer getCheckAnswerCorrect(AnswerOptions answerOptions) {
